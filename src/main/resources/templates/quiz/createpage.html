@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Getting Started: Handling Form Submission</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+ <link rel="stylesheet" href="./css/stylequiz.css"/>
+ <script src="./js/scriptquiz.js"></script>
+</head>
+<body>
+
+
+<link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'/>
+<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'/>
+<div class="wrapper">
+  <h1>Start Quiz</h1>
+  
+ <form action="#" th:action="@{/createquiz}" th:object="${quizdetails}" method="post">
+ <div id="divCheckbox" style="display: none;">
+    	 <p>Subject: <input type="text" th:value="${quizdetails.subject}" th:field="*{subject}" /></p>
+        </div>
+    
+    <div>
+      <p class="name-help">Please enter your first and last name.</p>
+    </div>
+    <input type="text" th:field="*{question}" placeholder="Question(optional)" />
+     <div>
+      <p class="email-help">Please enter your current email address.</p>
+    </div>
+    
+   <input type="text"  th:field="*{maxTime}" placeholder="Max minutes (default 1)"/>
+    <div>
+      <p class="name-help">Please enter your first and last name.</p>
+    </div>
+    
+    <input type="text"  th:field="*{answer}" placeholder="Answer"/>
+    <div>
+      <p class="name-help">Please enter your first and last name.</p>
+    </div>
+    
+    <input type="checkbox" th:field="*{anon}" th:value="anon" th:text="Anonymous"/>
+    
+    <input type="submit" class="submit" value="Start Quiz"/>
+  </form>
+</div>
+<p class="optimize">
+  Optimized for Chrome and Firefox!
+</p>
+
+</body>
+</html>
